@@ -33,9 +33,9 @@ Requirement:
     * -no-wait     disable the default prompt of `press enter to continue` on
       command error
 
-* `ItermStartTab[!] [options] {command}`
+* `ItermStartSplit[!] [options] {command}`
 
-    Start task in a new tab session of iTerm2, options is the same as
+    Start task in a new split session of iTerm2 tab, options is the same as
     `ItermStart` command
 
     *NOTE:*  iTerm2 version > Build 2.9.20160103-nightly is required to make
@@ -44,8 +44,8 @@ Requirement:
 ## Global varialbes
 
 * `g:iterm_start_profile` is used for control the profile used by
-  `ItermStartTab`, you can crate a profile called `fish` that use fish shell, and 
-  config `ItermStartTab` to use fish shell by add:
+  `ItermStartSplit`, you can crate a profile called `fish` that use fish shell, and 
+  config `ItermStartSplit` to use fish shell by add:
 
     let g:iterm_start_profile = 'fish'
 
@@ -60,7 +60,7 @@ If you use [vim-test](https://github.com/janko-m/vim-test), you can make your
 test run in background by adding below lines to your `.vimrc`:
 
     function! StartTest(cmd)
-      execute 'ItermStartTab! ' . a:cmd
+      execute 'ItermStartSplit! ' . a:cmd
     endfunction
 
     let g:test#custom_strategies = {'start': function('StartTest')}
