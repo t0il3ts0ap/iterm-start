@@ -40,4 +40,4 @@ function! s:ParseArgs(args)
 endfunction
 
 command! -bang -nargs=+ ItermStart    :call s:ItermStart('<bang>', 0, <f-args>)
-command! -bang -nargs=+ ItermStartTab :call s:ItermStart('<bang>', 1, <f-args>)
+command! -bang -nargs=+ ItermStartSplit :call s:ItermStart('<bang>', 1, <f-args>)

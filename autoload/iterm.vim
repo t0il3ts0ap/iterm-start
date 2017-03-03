@@ -20,16 +20,16 @@ function! Iterm#Start(command, opts)
       \   'error',
       \ 'end if') && s:osascript(
       \ 'tell application "iTerm2"',
-      \   'tell current window',
-      \     newtab ? 'create tab with ' . profile : '',
-      \     'tell current session',
+      \   'tell current session of current window',
+      \     newtab ? 'split vertically with ' . profile : '',
+	  \   'end tell',
+      \   'tell second session of current tab of current window',
       \       'set title to "' . title . '"',
       \       'set name to "' . title . '"',
       \       'write text ""',
       \       'write text "clear"',
-      \       'write text ' . s:escape('fish ' . script. ' %self'),
+      \       'write text ' . s:escape('fish ' . script. ' $$'),
       \       a:opts.active ? 'activate' : '',
-      \     'end tell',
       \   'end tell',
       \ 'end tell')
 endfunction
